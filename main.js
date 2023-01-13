@@ -1,16 +1,24 @@
-const fifteen =  inventors(function(inventors){
-	if( inventors.year >= 1500 && < 1600){
+const birthYear =  inventors.filter(function(inventors){  //function here can be replaced by =>
+	if( inventors.year >= 1500 && inventors.year < 1600){
 		return true;
 	}
 });
 
-console.table(fifteen):
+console.table(birthYear); //.table will put everything in a table for you like below
+
+//answer: 0	'Galileo'	'Galilei'	1564	1642
+//        1	'Johannes'	'Kepler'	1571	1630
 
 // const fiteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year <1600))
 
-const fullName = inventors.map(inventor.first + '-' + inventor.last);
+const fullName = inventors.map(function( a, b ){
+    return a.first + '-' + b.last;
+});
 
-console.log(fullName);
+console.log(fullName); //this returned the first name, why was the last name 'undefined'?
+
+//answer:['Albert-undefined', 'Isaac-undefined', 'Galileo-undefined', 'Marie-undefined',
+// 'Johannes-undefined', 'Nicolaus-undefined', 'Max-undefined', 'Katherine-undefined', 'Ada-undefined', 'Sarah E.-undefined', 'Lise-undefined', 'Hanna-undefined']
 
 const ordered = inventors.sort(function(a, b,) {
     if (a.years > b.year) {
