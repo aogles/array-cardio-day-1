@@ -46,8 +46,9 @@ console.log(totalYears); //861
 const totalYears = inventors.reduce((total, inventor) => {
     return total + (inventor.passed - inventor.year);
 }, 0); //523 
-//#5
 
+//#5
+// same as #4 us .sort
 const oldest = inventors.sort(function(a, b) {
     const lastGuy = a.passed - a.year;
     const nextGuy = b.passed - b.year;
@@ -59,21 +60,36 @@ const oldest = inventors.sort(function(a, b) {
 });
 console.log(oldest); //or console.table(oldest)
 
+//#6 
+/*
 const category = document.querySelector('.mw-category');
 const links = Array.from(category.querySelectorAll('a')); //array.from places in arraay
 
-const de = links.map(link => link.textContent);
+const de = links
 .map(link => link.textContent)
-.filter(streetName => streetName.includes('de'));
+.filter(streetName => streetName.includes('de')); */
 
+//#7
 
- const peeps = people.sort(function(lastOne, firstOne){
+ const peeps = people.sort(function(lastOne, firstOne) {
     const [lastA, firstA] = firstOne.split(',');
     const [lastB, firstB] = lastOne.split(',');
      // this will allow us to have first and last name split
- return lastA > lastB ? 1 : -1: //questions about this part
-    console.log(peeps);
- })
+ return lastA > lastB ? 1 : -1; //questions about this part, how does JS know a is greater than B?
+    
 
+ });
+console.log(peeps);  //returned list of 41 people in alphabeticl order
+
+//#8
 
  const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+  const transpo = data.reduce(function(obj, item){
+    if (!obj[item]) {
+        obj[item] =0;
+    }
+    obj[item] ++; // this would add one but here can ct as method to check that the increments would increase automatically and count each 
+  return obj;
+
+}, {}); //error message data already declared
