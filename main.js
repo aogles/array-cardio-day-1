@@ -1,3 +1,5 @@
+//#1
+
 const birthYear =  inventors.filter(function(inventors){  //function here can be replaced by =>
 	if( inventors.year >= 1500 && inventors.year < 1600){
 		return true;
@@ -10,6 +12,7 @@ console.table(birthYear); //.table will put everything in a table for you like b
 //        1	'Johannes'	'Kepler'	1571	1630
 
 // const fiteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year <1600))
+//#2
 
 const fullName = inventors.map(function( a, b ){
     return a.first + '-' + b.last;
@@ -19,23 +22,31 @@ console.log(fullName); //this returned the first name, why was the last name 'un
 
 //answer:['Albert-undefined', 'Isaac-undefined', 'Galileo-undefined', 'Marie-undefined',
 // 'Johannes-undefined', 'Nicolaus-undefined', 'Max-undefined', 'Katherine-undefined', 'Ada-undefined', 'Sarah E.-undefined', 'Lise-undefined', 'Hanna-undefined']
+//#3
 
-const ordered = inventors.sort(function(a, b,) {
+const birthDay = inventors.sort(function(a, b) {
     if (a.years > b.year) {
-        return 1;
+        return 1; // this is what determined which birthdate came first 
     } else {
         return -1;
     }
 })
-console.table(ordered)
+console.log(birthDay); 
 
 // const ordered = inventors.sort((a,b) => a.year > b.year ? 1 ; -1);
+//#4
 
-const totalYears = inventors.reduce((total, inventor) =>{
+const totalYears = inventors.reduce(function(total, inventor) {
     return total + (inventor.passed - inventor.year);
-}0);
+}, 0);
 
-console.log(totalYears);
+console.log(totalYears); //861
+
+//refactor from video with =>
+const totalYears = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year);
+}, 0); //523 
+//#5
 
 const oldest = inventors.sort(function(a, b) {
     const lastGuy = a.passed - a.year;
