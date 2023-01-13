@@ -1,5 +1,5 @@
 const fifteen =  inventors(function(inventors){
-	if( inventor.year >= 1500 && < 1600){
+	if( inventors.year >= 1500 && < 1600){
 		return true;
 	}
 });
